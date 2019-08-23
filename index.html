@@ -349,6 +349,111 @@
 <h3 id="运行-AppImage-文件"><a href="#运行-AppImage-文件" class="headerlink" title="运行 AppImage 文件"></a>运行 AppImage 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x *.AppImage          # 添加可执行权限</span><br><span class="line">./*.AppImage                  # 执行 AppImage 文件</span><br></pre></td></tr></table></figure>
 
 <h3 id="终止程序"><a href="#终止程序" class="headerlink" title="终止程序"></a>终止程序</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep &lt;key_name&gt;      # grep 是查找搜索命令，后面跟需要匹配的关键词</span><br><span class="line">kill -9 &lt;pid&gt;                 # 终止 pid 对应的程序</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/常用易忘 SQL 命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vocuso">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vocuso's Notes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/23/常用易忘 SQL 命令/" class="post-title-link" itemprop="url">常用易忘 SQL 命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-23T00:00:00+08:00">2019-08-23</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/08/23/常用易忘 SQL 命令/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/08/23/常用易忘 SQL 命令/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="删除数据库数据"><a href="#删除数据库数据" class="headerlink" title="删除数据库数据"></a>删除数据库数据</h2><h3 id="删除表数据"><a href="#删除表数据" class="headerlink" title="删除表数据"></a>删除表数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> field_name=&lt;field_name&gt;; <span class="keyword">COMMIT</span>;  <span class="comment">-- 删除表中某个字段所在的行</span></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name; <span class="keyword">COMMIT</span>;                                <span class="comment">--清空表数据，可 ROLLBACK，记录索引在原来的基础上递增</span></span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> table_name;                                     <span class="comment">--清空表数据，不可 ROLLBACK，记录索引递增值重置</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除表结构"><a href="#删除表结构" class="headerlink" title="删除表结构"></a>删除表结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> table_name;  <span class="comment">--删除表，不可 ROLLBACK，直接删除整个表，包括表结构</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="备份数据库数据"><a href="#备份数据库数据" class="headerlink" title="备份数据库数据"></a>备份数据库数据</h2><h3 id="备份表结构"><a href="#备份表结构" class="headerlink" title="备份表结构"></a>备份表结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name_bak <span class="keyword">LIKE</span> table_name;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name_bak <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+
         
       
     </div>
@@ -540,7 +645,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -559,7 +664,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -582,7 +689,9 @@
         
           
         
-        <span class="site-state-item-count">4</span>
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -689,6 +798,8 @@
   
 
   
+    
+      
     
       
     

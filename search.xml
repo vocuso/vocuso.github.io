@@ -13,6 +13,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[常用易忘 SQL 命令]]></title>
+    <url>%2F2019%2F08%2F23%2F%E5%B8%B8%E7%94%A8%E6%98%93%E5%BF%98%20SQL%20%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[删除数据库数据删除表数据123DELETE FROM table_name WHERE field_name=&lt;field_name&gt;; COMMIT; -- 删除表中某个字段所在的行DELETE FROM table_name; COMMIT; --清空表数据，可 ROLLBACK，记录索引在原来的基础上递增TRUNCATE TABLE table_name; --清空表数据，不可 ROLLBACK，记录索引递增值重置 删除表结构1DROP TABLE table_name; --删除表，不可 ROLLBACK，直接删除整个表，包括表结构 备份数据库数据备份表结构12CREATE TABLE table_name_bak LIKE table_name;INSERT INTO table_name_bak SELECT * FROM table_name;]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F08%2F21%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment More CustomChange themeMore info: Tutorial and the theme of NexT]]></content>
